@@ -7,6 +7,7 @@
 ```
 git clone https://github.com/c-mc/waracle-hotel-booking.git
 ```
+* Open the solution in Visual Studio, open Solution Explorer, right click on the `HotelBookings.Api` project and select `Set as Startup Project`
 
 * Create a SQL database for use with the solution, e.g. <a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/azure-sql-dotnet-quickstart?view=azuresql&tabs=visual-studio%2Cpasswordless%2Cservice-connector%2Cportal">Connect to and query Azure SQL Database using .NET</a>
 
