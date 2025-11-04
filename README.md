@@ -1,6 +1,10 @@
 # Hotel Booking API
 #### A repository for a hotel information and booking API with RESTFul endpoints, in a clean architecture implementation
 ---
+### Live Demo
+The various endpoints of the API are available to test via Swagger UI, on a version of the API deployed to Azure:
+<a href="https://hotel-booking-fpd7afdaf4gnctgz.uksouth-01.azurewebsites.net/swagger/index.html">**Test via Swagger UI**</a>
+
 
 ### Running Locally
 * Clone the repository to a convenient location, e.g. open a command prompt, navigate to the folder you wish to clone the repo to and run the following command:
