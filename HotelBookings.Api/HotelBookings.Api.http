@@ -1,0 +1,11 @@
+@HotelBookings.Api_HostAddress = http://localhost:5246
+
+POST {{HotelBookings.Api_HostAddress}}/api/admin/data
+Accept: application/json
+
+###
+
+DELETE {{HotelBookings.Api_HostAddress}}/api/admin/data
+Accept: application/json
+
+###

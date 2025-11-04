@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/HotelBookings.Api/Properties/ServiceDependencies/Hotel-Bookings-Api - Web Deploy
+/HotelBookings.Api/.config
+/HotelBookings.Api/Properties/serviceDependencies.Hotel-Bookings-Api - Web Deploy.json
