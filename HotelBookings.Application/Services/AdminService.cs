@@ -78,7 +78,7 @@ namespace HotelBookings.Application.Services
         private static Room CreateRoom(RoomType roomType, Hotel hotel)
         {
             Random rnd = new();
-            var capacity = roomType.Equals(RoomType.Deluxe) ? rnd.Next(2, 6) : (int)roomType;
+            var capacity = roomType.Equals(RoomType.Deluxe) ? rnd.Next(2, 6) : (int)roomType+1;
             return new Room { Id = new Guid(), HotelId = hotel.Id, Capacity = capacity, Type = roomType, Hotel = hotel };
         }
 
@@ -87,7 +87,7 @@ namespace HotelBookings.Application.Services
             Random rnd = new();
             for (int i = 0; i < 6; i++)
             {
-                hotel.AddRoom(CreateRoom((RoomType)rnd.Next(1, 3), hotel));
+                hotel.AddRoom(CreateRoom((RoomType)rnd.Next(0, 3), hotel));
             }
         }
 
