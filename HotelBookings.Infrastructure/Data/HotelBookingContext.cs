@@ -42,14 +42,6 @@ namespace HotelBookings.Infrastructure.Data
                 .HasDefaultValueSql("NEXT VALUE FOR BookingSequence");
 
             modelBuilder.Entity<Booking>()
-                .Property(b => b.CheckIn)
-                .HasColumnType("date");
-
-            modelBuilder.Entity<Booking>()
-                .Property(b => b.CheckOut)
-                .HasColumnType("date");
-
-            modelBuilder.Entity<Booking>()
                 .HasIndex(b => new { b.RoomId, b.CheckIn, b.CheckOut })
                 .IsUnique();
         }

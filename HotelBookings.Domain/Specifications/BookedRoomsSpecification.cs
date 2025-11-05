@@ -10,6 +10,12 @@ namespace HotelBookings.Domain.Specifications
                         ||
                         (availabilityRequest.From >= b.CheckIn && availabilityRequest.From <= b.CheckOut)
                     )
+                    ||
+                    (
+                        (b.CheckIn >= availabilityRequest.From && b.CheckIn <= availabilityRequest.To)
+                        ||
+                        (b.CheckOut >= availabilityRequest.From && b.CheckOut <= availabilityRequest.To)
+                    )
             )
     {
 
