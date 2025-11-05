@@ -39,7 +39,7 @@ namespace HotelBookings.Api.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [EndpointSummary("Get all rooms for a hotel by its ID")]
-        public async Task<ActionResult<IReadOnlyList<Room>>> GetHotelRooms(Guid id)
+        public async Task<ActionResult<IReadOnlyList<RoomDto>>> GetHotelRooms(Guid id)
         {
             var hotelRooms = await hotelService.GetHotelRoomsAsync(id);
 
