@@ -20,13 +20,14 @@
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.12.6" />
     <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="1.4.3" />
     <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="Moq.EntityFrameworkCore" Version="9.0.0.5" />
     <PackageReference Include="MSTest" Version="3.6.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HotelBookings.Api\HotelBookings.Api.csproj" />
     <ProjectReference Include="..\HotelBookings.Application\HotelBookings.Application.csproj" />
     <ProjectReference Include="..\HotelBookings.Domain\HotelBookings.Domain.csproj" />
+    <ProjectReference Include="..\HotelBookings.Test.Utilities\HotelBookings.Test.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
