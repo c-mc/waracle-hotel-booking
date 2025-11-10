@@ -1,5 +1,4 @@
 ﻿using HotelBookings.Common.DTOs;
-using HotelBookings.Domain.Entities;
 using HotelBookings.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

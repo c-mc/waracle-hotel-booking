@@ -5,11 +5,11 @@ namespace HotelBookings.Infrastructure.Data
 {
     public class HotelBookingContext(DbContextOptions<HotelBookingContext> options) : DbContext(options)
     {
-        public DbSet<Hotel> Hotels => Set<Hotel>();
+        public virtual DbSet<Hotel> Hotels => Set<Hotel>();
 
-        public DbSet<Room> Rooms => Set<Room>();
+        public virtual DbSet<Room> Rooms => Set<Room>();
 
-        public DbSet<Booking> Bookings => Set<Booking>();
+        public virtual DbSet<Booking> Bookings => Set<Booking>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,7 @@ namespace HotelBookings.Infrastructure.Data
 
             modelBuilder.Entity<Booking>()
                 .Property(b => b.Id)
+                //.UseHiLo(name: "BookingSequence"); -- option for better performance when scaling
                 .HasDefaultValueSql("NEXT VALUE FOR BookingSequence");
 
             modelBuilder.Entity<Booking>()

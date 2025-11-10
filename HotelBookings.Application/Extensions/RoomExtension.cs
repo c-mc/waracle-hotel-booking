@@ -15,8 +15,8 @@ namespace HotelBookings.Application.Extensions
             {
                 Id = room.Id,
                 HotelName = room.Hotel.Name,
-                HotelAddress = room.Hotel.Address,
-                Type = room?.Type.ToString(),
+                HotelAddress = room.Hotel.Address ?? string.Empty,
+                Type = room?.Type.ToString() ?? string.Empty,
                 Capacity = room.Capacity,
                 HotelId = room.Hotel.Id
             };

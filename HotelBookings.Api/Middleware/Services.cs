@@ -15,9 +15,9 @@ namespace HotelBookings.Api.Middleware
             
             services.AddOpenApi();
 
-            services.AddScoped<IGenericRepository<Booking>, GenericRepository<Booking>>();
             services.AddScoped<IGenericRepository<Hotel>, GenericRepository<Hotel>>();
             services.AddScoped<IGenericRepository<Room>, GenericRepository<Room>>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
 
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IHotelService, HotelService>();

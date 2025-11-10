@@ -1,7 +1,5 @@
 ﻿using HotelBookings.Common.DTOs;
 using HotelBookings.Domain.Entities;
-using System.Net;
-using System.Xml.Linq;
 
 namespace HotelBookings.Application.Extensions
 {

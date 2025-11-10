@@ -3,12 +3,11 @@ using HotelBookings.Common.DTOs;
 using HotelBookings.Domain.Entities;
 using HotelBookings.Domain.Interfaces;
 using HotelBookings.Domain.Specifications;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace HotelBookings.Application.Services
 {
-    public class BookingService(IGenericRepository<Booking> bookingRepository,
+    public class BookingService(IBookingRepository bookingRepository,
                                 IGenericRepository<Hotel> hotelRepository,
                                 IGenericRepository<Room> roomRepository)
                  : IBookingService
@@ -41,15 +40,11 @@ namespace HotelBookings.Application.Services
             bookingRequest.From = bookingRequest.From.AddHours(hotel.CheckInTime.Hour).AddMinutes(hotel.CheckInTime.Minute);
             bookingRequest.To = bookingRequest.To.AddHours(hotel.CheckOutTime.Hour).AddMinutes(hotel.CheckOutTime.Minute);
 
-            BookedRoomsSpecification bookedRoomsSpec = new(bookingRequest);
-
             try
             {
                 await bookingRepository.BeginTransactionAsync(System.Data.IsolationLevel.Serializable);
 
-                var bookedRoomIds = await bookingRepository.ExpressionToQuery(bookedRoomsSpec.Criteria).Select(b => b.RoomId).ToListAsync();
-
-                if (bookedRoomIds.Contains(bookingRequest.RoomId.Value))
+                if (await bookingRepository.IsRoomAlreadyBooked(bookingRequest))
                 {
                     return CreateBookingResult(false, HttpStatusCode.Conflict, "The requested room is not available for the given date range.");
                 }

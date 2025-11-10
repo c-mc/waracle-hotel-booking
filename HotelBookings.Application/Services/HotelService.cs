@@ -10,8 +10,8 @@ using System.Linq.Expressions;
 namespace HotelBookings.Application.Services
 {
     public class HotelService(IGenericRepository<Hotel> hotelRepository,
-                              IGenericRepository<Booking> bookingRepository,
-                              IGenericRepository<Room> roomRepository)
+                              IGenericRepository<Room> roomRepository,
+                              IBookingRepository bookingRepository)
                 : IHotelService
     {
         public async Task<IReadOnlyList<HotelBaseDto>> SearchHotelsAsync(SearchRequestDto searchRequest)

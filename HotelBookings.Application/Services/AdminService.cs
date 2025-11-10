@@ -9,7 +9,7 @@ namespace HotelBookings.Application.Services
 {
     public class AdminService(IGenericRepository<Hotel> hotelRepository,
                               IGenericRepository<Room> roomRepository,
-                              IGenericRepository<Booking> bookingRepository)
+                              IBookingRepository bookingRepository)
                  : IAdminService
     {
         public async Task<BaseResultDto> SeedDatabaseAsync()
@@ -79,7 +79,7 @@ namespace HotelBookings.Application.Services
         {
             Random rnd = new();
             var capacity = roomType.Equals(RoomType.Deluxe) ? rnd.Next(2, 6) : (int)roomType+1;
-            return new Room { Id = new Guid(), HotelId = hotel.Id, Capacity = capacity, Type = roomType, Hotel = hotel };
+            return new Room { Id = Guid.NewGuid(), HotelId = hotel.Id, Capacity = capacity, Type = roomType, Hotel = hotel };
         }
 
         private static void CreateRooms(ref Hotel hotel)
@@ -221,7 +221,7 @@ namespace HotelBookings.Application.Services
 
             foreach (var hotel in hotels)
             {
-                var newHotel = new Hotel { Id = new Guid(), Name = hotel.Name, Description = hotel.Description, Address = hotel.Address };
+                var newHotel = new Hotel { Id = Guid.NewGuid(), Name = hotel.Name, Description = hotel.Description, Address = hotel.Address };
 
                 CreateRooms(ref newHotel);
 
